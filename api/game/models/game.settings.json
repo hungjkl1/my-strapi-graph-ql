@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "name": "Game"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "gameName": {
+      "type": "string"
+    },
+    "played": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "banner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Action",
+        "Strategy",
+        "Multiplayers"
+      ]
+    }
+  }
+}

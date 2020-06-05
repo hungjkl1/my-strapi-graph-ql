@@ -10,17 +10,24 @@
  * See more details here: https://strapi.io/documentation/3.0.0-beta.x/concepts/configurations.html#bootstrap
  */
 
-module.exports = (cb) => {
-    const io = require('socket.io').listen('3001')
-    io.origins('http://localhost:3000')
-    console.log('here')
-    io.on('connection', (socket) => {
-        console.log('user connected')
-        socket.on("disconnect", () => {
-            console.log('user')
-        });
-        socket.on("click-button", (data) => {
-            socket.emit('click-response',data)
-        });
+module.exports = async () => {
+    process.nextTick(() => {
+        const io = require('socket.io').listen(strapi.server)
+        io.on('connection', (socket) => {
+            console.log('here')
+            socket.on("disconnect", () => {
+                console.log('user')
+            });
+            socket.on("join-room-console", data => {
+                socket.join(data.roomToken)
+                io.sockets.in(data.roomToken).emit('connectToRoom', data);
+            })
+            socket.on("send-input", data => {
+                console.log('--------------------------------');
+                console.log(data);
+                io.sockets.in(data.roomToken).emit('receive-input', data.key)
+            })
+        })
+        strapi.io = io
     })
 };

@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/user-game-data",
+      "handler": "user-game-data.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/user-game-data/count",
+      "handler": "user-game-data.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/user-game-data/:id",
+      "handler": "user-game-data.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/user-game-data",
+      "handler": "user-game-data.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/user-game-data/:id",
+      "handler": "user-game-data.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/user-game-data/:id",
+      "handler": "user-game-data.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/user-game-data/joinConsole",
+      "handler": "user-game-data.joinControllerAndGame",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

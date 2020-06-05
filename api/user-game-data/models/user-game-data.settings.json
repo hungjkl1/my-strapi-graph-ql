@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_game_data",
+  "info": {
+    "name": "UserGameData"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "game": {
+      "model": "game"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "roomToken": {
+      "type": "uid"
+    }
+  }
+}
