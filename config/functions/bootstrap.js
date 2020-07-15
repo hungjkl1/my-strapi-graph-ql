@@ -30,7 +30,7 @@ module.exports = async () => {
           const data = JSON.parse(msg)
           console.log(data)
           if (data.action === "CREATE_ROOM") {
-            const roomId = 'room1'
+            const roomId = new Date().getTime()
             room[roomId] = {
               ...room[roomId],
               mobile: ws
