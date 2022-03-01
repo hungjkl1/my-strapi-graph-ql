@@ -12,7 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "socket.io": "^2.3.0",
-    "strapi": "3.0.0",
+    "strapi": "3.6.8",
     "strapi-admin": "3.0.0",
     "strapi-connector-mongoose": "3.0.0",
     "strapi-plugin-content-manager": "3.0.0",
